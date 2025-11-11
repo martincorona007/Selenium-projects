@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //SELENIUM
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation("org.seleniumhq.selenium:selenium-java:4.33.0")
+
+    //TESTNG
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation("org.testng:testng:7.11.0")
+    // Use JUnit Jupiter for testing.
+    //testImplementation libs.junit.jupiter//JUNIT 5
+    //testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    //CUCUMBER for BDD
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation("io.cucumber:cucumber-java:7.23.0")
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testImplementation("io.cucumber:cucumber-junit:7.23.0") //JUNIT 4
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+
+    //CHROME DRIVER
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    implementation("io.github.bonigarcia:webdrivermanager:6.1.0")
+    //testImplementation("io.cucumber:cucumber-junit:7.23.0") //TestNG
+}
+
+test {
+  //  useJUnitPlatform()
+    systemProperty "cucumber.options",
+            System.getProperty("cucumber.options")
+}
